@@ -1,20 +1,27 @@
 function isBestFriend( f1 , f2 ) {
-    
+    if(typeof f1 === "object" && typeof f2 === "object"){
+        if(f1.bestFriend === f2.roll && f1.roll === f2.bestFriend){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        return "Invalid";
+    }
 }
 
-f1 = { 
-    name : " ",
-    roll : 22,
-    bestFriend : 2
-}
-f2 = { 
-    name : " ",
-    roll : 22,
-    bestFriend : 20
-}
-if(f1.bestFriend === f2.roll){
-    console.log("We are best friends");
-}
-else{
-    console.log("We have no friendship");
-}
+
+const frn1 = { name : "hashem", roll : 1, bestFriend : 2};
+const frn2 = { name : "kashem", roll : 2, bestFriend : 1};
+
+console.log(isBestFriend(frn1, frn2));
+console.log(isBestFriend({ name: "hashem", roll: 21, bestFriend: 1},
+    { name: "kashem", roll: 1, bestFriend: 2 }));
+console.log(isBestFriend({ name:"kashem", roll: 2, bestFriend: 11},
+    "Kashem er Kono Bondhu Nai"));
+console.log(isBestFriend("hashem", { name:"kashem", roll: 2, bestFriend: 11}));
+console.log(isBestFriend({ name: "hashem", roll: 1 , bestFriend: 1},
+    { name: "kashem" , roll: 1, bestFriend: 1 }));
+
