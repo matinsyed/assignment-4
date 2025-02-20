@@ -1,11 +1,11 @@
 function cashOut( money ) {
-    if(money.NaN){
-        console.log("Not a Number");
+    const cashOutRate = 1.75/100;
+    let cashOutCharge = 0;
+    if(typeof(money) === "number" && money >=0){ 
+        cashOutCharge = money * cashOutRate;      
+        return cashOutCharge;
     }
     else{
-        console.log("Number");
+        return "Invalid";
     }
-    console.log(typeof(money));
-    }
-
-cashOut("asdf");
+}
